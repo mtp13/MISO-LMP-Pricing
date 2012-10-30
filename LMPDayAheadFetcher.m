@@ -25,13 +25,11 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMdd"];
     NSString *stringFromDate = [formatter stringFromDate:aDate];
-    NSLog(@"%@", stringFromDate);
     
     NSString *testURL = @"http://localhost/~mtp/20110716_da_lmp.csv";
     NSString *misoURL = [NSString stringWithFormat:
                          @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
                          stringFromDate];
-    NSLog(@"%@", misoURL);
 
     if (testing) {
         url = [NSURL URLWithString:testURL];
@@ -40,8 +38,7 @@
                                     stringByAddingPercentEscapesUsingEncoding:
                                     NSUTF8StringEncoding]];
     }
-    
-    NSLog(@"%@", url);
+
     NSError *error;
     NSString *lmpString = [NSString stringWithContentsOfURL:url
                                                    encoding:NSUTF8StringEncoding
@@ -59,22 +56,17 @@
     NSArray *lines = [aFile componentsSeparatedByString:@"\n"];
     for (NSString *l in lines) {
         csvFields = [self parseCSV:l];
-//        NSLog(@"%@", [csvFields objectAtIndex:0]);
         if (foundData) {
-//            NSLog(@"%u", [csvFields count]);
             if ([csvFields count] == 27) {
                 NSString *k = [NSString stringWithFormat:@"%@_%@_%@",
                                [csvFields objectAtIndex:0],
                                [csvFields objectAtIndex:1],
                                [csvFields objectAtIndex:2]];
-//                NSLog(@"%@",k);
                 NSRange theRange;
                 theRange.location = 3;
                 theRange.length = [csvFields count] - 3;
                 NSArray *a = [csvFields subarrayWithRange:theRange];
-//                NSLog(@"%@",a);
                 [hourlyPrices setObject:a forKey:k];
-//                NSLog(@"%@", hourlyPrices);
             }
         }
         else {
@@ -106,14 +98,10 @@
 {
     float average = 0;
     for (int i = 0; i <= 5; i++){
-//        NSLog(@"%@", [prices objectAtIndex:i]);
         average += [[prices objectAtIndex:i] floatValue];
-        
     }
     for (int i = 22; i <= 23; i++){
-//        NSLog(@"%@", [prices objectAtIndex:i]);
         average += [[prices objectAtIndex:i] floatValue];
-        
     }
     return average / 8.0;
 }
