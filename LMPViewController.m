@@ -14,7 +14,6 @@
     NSDate *LMPDate;
     NSDictionary *hourlyPrices;
 }
-
 @end
 
 @implementation LMPViewController
