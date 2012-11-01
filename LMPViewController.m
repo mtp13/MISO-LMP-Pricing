@@ -58,6 +58,7 @@
 {
     NSDate *LMPDate;
 
+
     int i = [sender selectedSegmentIndex];
     if (i == 0) {
         LMPDate = [self getYesterdaysDate];
@@ -74,6 +75,7 @@
         [self updateDisplay:LMPDate];
         [self fetchLMPDailyFile:LMPDate];
     }
+
 }
 
 - (void)fetchLMPDailyFile:(NSDate *)aDate
