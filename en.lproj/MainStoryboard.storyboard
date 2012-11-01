@@ -25,8 +25,19 @@
                                     <action selector="fetchLMPDailyFile:" destination="2" eventType="touchUpInside" id="WFm-dF-FXx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-sO-Eh2">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="On Peak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePL-8d-xCr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Gaz-7D-gOx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Off Peak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYT-GW-08Z">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="WeT-Yv-XfT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -34,13 +45,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="hYD-jo-cKN" secondAttribute="bottom" constant="28" id="5cz-6Q-kNU"/>
-                            <constraint firstItem="hYD-jo-cKN" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="N3F-oS-WRw"/>
-                            <constraint firstItem="e3M-sO-Eh2" firstAttribute="centerY" secondItem="hYD-jo-cKN" secondAttribute="centerY" type="default" id="ZUz-oQ-T6o"/>
-                            <constraint firstItem="hYD-jo-cKN" firstAttribute="leading" secondItem="e3M-sO-Eh2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qaC-ML-Euz"/>
+                            <constraint firstAttribute="trailing" secondItem="kYT-GW-08Z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5v4-X3-mOS"/>
+                            <constraint firstItem="kYT-GW-08Z" firstAttribute="centerX" secondItem="hYD-jo-cKN" secondAttribute="centerX" type="default" id="6mv-8P-6Gr"/>
+                            <constraint firstAttribute="trailing" secondItem="ePL-8d-xCr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H5s-sD-8Tj"/>
+                            <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="ePL-8d-xCr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KsM-nH-lQT"/>
+                            <constraint firstItem="kYT-GW-08Z" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="foR-3j-V9e"/>
+                            <constraint firstItem="ePL-8d-xCr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rOc-oc-CjT"/>
+                            <constraint firstItem="ePL-8d-xCr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ziZ-XJ-nOu"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lmpNodeDisplay" destination="e3M-sO-Eh2" id="GdQ-Oq-skv"/>
+                        <outlet property="offPeakDisplay" destination="kYT-GW-08Z" id="Kai-F0-zj6"/>
+                        <outlet property="onPeakDisplay" destination="ePL-8d-xCr" id="Lc7-RB-q6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -48,18 +64,6 @@
             <point key="canvasLocation" x="-282" y="61"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LMPViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LMPViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fetchLMPDailyFile:"/>
-                <relationship kind="outlet" name="lmpNodeDisplay" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

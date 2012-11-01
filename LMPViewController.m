@@ -17,6 +17,8 @@
 @end
 
 @implementation LMPViewController
+@synthesize onPeakDisplay = _onPeakDisplay;
+@synthesize offPeakDisplay = _offPeakDisplay;
 
 - (IBAction)fetchLMPDailyFile:(id)sender
 {
@@ -25,10 +27,10 @@
     NSLog(@"%@", LMPDate);
     hourlyPrices = [LMPDayAheadFetcher fetchForDate:LMPDate];
     NSArray *a = [hourlyPrices objectForKey:@"EEI_Interface_LMP"];
-    NSLog(@"ON Peak = %f", [LMPDayAheadFetcher getONPeakAverage:a]);
-    NSLog(@"OFF Peak = %f", [LMPDayAheadFetcher getOFFPeakAverage:a]);
+    self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
+                               [LMPDayAheadFetcher getONPeakAverage:a]];
+    self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
+                               [LMPDayAheadFetcher getOFFPeakAverage:a]];
 }
-
-
 
 @end

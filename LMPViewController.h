@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LMPViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *onPeakDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *offPeakDisplay;
 @end
