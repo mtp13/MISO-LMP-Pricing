@@ -1,5 +1,5 @@
 //
-//  LMPDayAheadFetcher.h
+//  LMPDayAhead.h
 //  MISO LMP Pricing
 //
 //  Created by Mike Pullen on 10/24/12.
@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LMPDayAheadFetcher : NSObject
+@interface LMPDayAhead : NSObject
 
-+ (NSDictionary *)fetchForDate:(NSDate *)aDate;
+//+ (NSDictionary *)fetchForDate:(NSDate *)aDate;
++ (NSDictionary *)getHourlyPricesFromFile: (NSString *)aFile;
 + (float) getONPeakAverage:(NSArray *)prices;
 + (float) getOFFPeakAverage:(NSArray *)prices;
 

@@ -1,50 +1,22 @@
 //
-//  LMPDayAheadFetcher.m
+//  LMPDayAhead.m
 //  MISO LMP Pricing
 //
 //  Created by Mike Pullen on 10/24/12.
 //  Copyright (c) 2012 Mike Pullen. All rights reserved.
 //
 
-#import "LMPDayAheadFetcher.h"
+#import "LMPDayAhead.h"
 
-@implementation LMPDayAheadFetcher
+@implementation LMPDayAhead
 
-+ (NSDictionary *)fetchForDate:(NSDate *)aDate
-{
-    NSString *f = [self getFileFromMisoForDate:aDate];
-    NSDictionary *hp = [self getHourlyPricesFromFile:f];
-    return hp;
-}
+//+ (NSDictionary *)fetchForDate:(NSDate *)aDate
+//{
+//    NSDictionary *hp = [self getHourlyPricesFromFile:f];
+//    return hp;
+//}
 
-+ (NSString *)getFileFromMisoForDate:(NSDate *)aDate
-{
-    BOOL testing = NO;
-    NSURL *url;
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyyMMdd"];
-    NSString *stringFromDate = [formatter stringFromDate:aDate];
-    
-    NSString *testURL = @"http://localhost/~mtp/20110716_da_lmp.csv";
-    NSString *misoURL = [NSString stringWithFormat:
-                         @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
-                         stringFromDate];
 
-    if (testing) {
-        url = [NSURL URLWithString:testURL];
-    } else {
-        url = [NSURL URLWithString:[misoURL
-                                    stringByAddingPercentEscapesUsingEncoding:
-                                    NSUTF8StringEncoding]];
-    }
-
-    NSError *error;
-    NSString *lmpString = [NSString stringWithContentsOfURL:url
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:&(error)];
-    return lmpString;
-}
 
 + (NSDictionary *)getHourlyPricesFromFile: (NSString *)aFile
 {

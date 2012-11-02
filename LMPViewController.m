@@ -7,7 +7,7 @@
 //
 
 #import "LMPViewController.h"
-#include "LMPDayAheadFetcher.h"
+#include "LMPDayAhead.h"
 
 @interface LMPViewController ()
 @end
@@ -26,30 +26,48 @@
     if (i == 0) {
         LMPDate = [self getYesterdaysDate];
         [self resetDisplay:LMPDate];
-        [self fetchLMPDailyFile:LMPDate];
+        [self updateDisplayForDate:LMPDate];
     }
     if (i == 1) {
         LMPDate = [NSDate date];
         [self resetDisplay:LMPDate];
-        [self fetchLMPDailyFile:LMPDate];
+        [self updateDisplayForDate:LMPDate];
     }
     if (i == 2) {
         LMPDate = [self getTomorrowsDate];
         [self resetDisplay:LMPDate];
-        [self fetchLMPDailyFile:LMPDate];
+        [self updateDisplayForDate:LMPDate];
     }
 
 }
 
-- (void)fetchLMPDailyFile:(NSDate *)aDate
+- (NSString *)getFileFromMisoForDate:(NSDate *)aDate
 {
-    NSDate *LMPDate = aDate;
-    NSDictionary *hourlyPrices = [LMPDayAheadFetcher fetchForDate:LMPDate];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSString *stringFromDate = [formatter stringFromDate:aDate];
+    NSString *misoURL = [NSString stringWithFormat:
+                         @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
+                         stringFromDate];
+    NSURL *url = [NSURL URLWithString:[misoURL
+                                    stringByAddingPercentEscapesUsingEncoding:
+                                    NSUTF8StringEncoding]];
+    NSError *error;
+    NSString *lmpString = [NSString stringWithContentsOfURL:url
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:&(error)];
+    return lmpString;
+}
+
+- (void)updateDisplayForDate:(NSDate *)aDate
+{
+    NSString *f = [self getFileFromMisoForDate:aDate];
+    NSDictionary *hourlyPrices = [LMPDayAhead getHourlyPricesFromFile:f];
     NSArray *a = [hourlyPrices objectForKey:@"EEI_Interface_LMP"];
     self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
-                               [LMPDayAheadFetcher getONPeakAverage:a]];
+                               [LMPDayAhead getONPeakAverage:a]];
     self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
-                               [LMPDayAheadFetcher getOFFPeakAverage:a]];
+                               [LMPDayAhead getOFFPeakAverage:a]];
 }
 
 - (NSDate *)getYesterdaysDate
