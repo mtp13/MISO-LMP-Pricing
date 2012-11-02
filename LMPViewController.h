@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface LMPViewController : UIViewController
+{
+    NSURLConnection *connection;
+    NSMutableData *receivedData;
+}
 @property (weak, nonatomic) IBOutlet UILabel *dateDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *onPeakDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *offPeakDisplay;

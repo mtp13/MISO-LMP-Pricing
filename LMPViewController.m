@@ -41,8 +41,9 @@
 
 }
 
-- (NSString *)getFileFromMisoForDate:(NSDate *)aDate
+- (void)fetchFromMisoForDate:(NSDate *)aDate
 {
+    receivedData = [[NSMutableData alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMdd"];
     NSString *stringFromDate = [formatter stringFromDate:aDate];
@@ -50,24 +51,48 @@
                          @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
                          stringFromDate];
     NSURL *url = [NSURL URLWithString:[misoURL
-                                    stringByAddingPercentEscapesUsingEncoding:
-                                    NSUTF8StringEncoding]];
-    NSError *error;
-    NSString *lmpString = [NSString stringWithContentsOfURL:url
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:&(error)];
-    return lmpString;
+                                       stringByAddingPercentEscapesUsingEncoding:
+                                       NSUTF8StringEncoding]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    connection = [[NSURLConnection alloc] initWithRequest:request
+                                                 delegate:self
+                                         startImmediately:YES];
 }
 
-- (void)updateDisplayForDate:(NSDate *)aDate
+- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
 {
-    NSString *f = [self getFileFromMisoForDate:aDate];
+    [receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)conn
+{
+    NSString *f = [[NSString alloc] initWithData:receivedData
+                                        encoding:NSUTF8StringEncoding];
     NSDictionary *hourlyPrices = [LMPDayAhead getHourlyPricesFromFile:f];
     NSArray *a = [hourlyPrices objectForKey:@"EEI_Interface_LMP"];
     self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
                                [LMPDayAhead getONPeakAverage:a]];
     self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
-                               [LMPDayAhead getOFFPeakAverage:a]];
+                                [LMPDayAhead getOFFPeakAverage:a]];
+}
+
+- (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
+{
+    connection = nil;
+    receivedData = nil;
+    NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                             [error localizedDescription]];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                 message:errorString
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil, nil];
+    [av show];
+}
+
+- (void)updateDisplayForDate:(NSDate *)aDate
+{
+    [self fetchFromMisoForDate:aDate];
 }
 
 - (NSDate *)getYesterdaysDate
