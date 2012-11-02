@@ -17,6 +17,7 @@
 @synthesize dateDisplay = _dateDisplay;
 @synthesize onPeakDisplay = _onPeakDisplay;
 @synthesize offPeakDisplay = _offPeakDisplay;
+@synthesize activityIndicator = _activityIndicator;
 
 - (IBAction)changeLMPDate:(id)sender
 {
@@ -74,6 +75,7 @@
                                [LMPDayAhead getONPeakAverage:a]];
     self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
                                 [LMPDayAhead getOFFPeakAverage:a]];
+    [self.activityIndicator stopAnimating];
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error
@@ -92,6 +94,7 @@
 
 - (void)updateDisplayForDate:(NSDate *)aDate
 {
+    [self.activityIndicator startAnimating];
     [self fetchFromMisoForDate:aDate];
 }
 
