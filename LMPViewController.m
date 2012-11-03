@@ -39,7 +39,6 @@
         [self resetDisplay:LMPDate];
         [self updateDisplayForDate:LMPDate];
     }
-
 }
 
 - (void)fetchFromMisoForDate:(NSDate *)aDate
@@ -146,6 +145,8 @@
 
     self.onPeakDisplay.text = @"On Peak = $00.00";
     self.offPeakDisplay.text = @"Off Peak = $00.00";
+    self.hp1Display.text = @"";
+    self.hp2Display.text = @"";
 }
 
 @end

@@ -10,7 +10,6 @@
 
 @interface LMPDayAhead : NSObject
 
-//+ (NSDictionary *)fetchForDate:(NSDate *)aDate;
 + (NSDictionary *)getHourlyPricesFromFile: (NSString *)aFile;
 + (float) getONPeakAverage:(NSArray *)prices;
 + (float) getOFFPeakAverage:(NSArray *)prices;

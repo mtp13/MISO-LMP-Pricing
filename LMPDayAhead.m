@@ -10,21 +10,12 @@
 
 @implementation LMPDayAhead
 
-//+ (NSDictionary *)fetchForDate:(NSDate *)aDate
-//{
-//    NSDictionary *hp = [self getHourlyPricesFromFile:f];
-//    return hp;
-//}
-
-
-
 + (NSDictionary *)getHourlyPricesFromFile: (NSString *)aFile
 {
     BOOL foundData = NO;
     NSArray *csvFields;
     NSMutableDictionary *hourlyPrices = [[NSMutableDictionary alloc] init];
-    
-    
+        
     NSArray *lines = [aFile componentsSeparatedByString:@"\n"];
     for (NSString *l in lines) {
         csvFields = [self parseCSV:l];
