@@ -75,6 +75,20 @@
                                [LMPDayAhead getONPeakAverage:a]];
     self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
                                 [LMPDayAhead getOFFPeakAverage:a]];
+    NSString *hp1 = [NSString string];
+    NSString *hp2 = [NSString string];
+    float price;
+    for (int he = 1; he <13; he++) {
+        price = [a[he-1] floatValue];
+        hp1 = [hp1 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+    }
+    for (int he = 13; he <25; he++) {
+        price = [a[he-1] floatValue];
+        hp2 = [hp2 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+    }
+
+    self.hp1Display.text = hp1;
+    self.hp2Display.text = hp2;
     [self.activityIndicator stopAnimating];
 }
 

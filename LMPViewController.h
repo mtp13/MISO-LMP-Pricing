@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *onPeakDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *offPeakDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *hp1Display;
+@property (weak, nonatomic) IBOutlet UILabel *hp2Display;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
