@@ -70,24 +70,27 @@
                                         encoding:NSUTF8StringEncoding];
     NSDictionary *hourlyPrices = [LMPDayAhead getHourlyPricesFromFile:f];
     NSArray *a = [hourlyPrices objectForKey:@"EEI_Interface_LMP"];
-    self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
-                               [LMPDayAhead getONPeakAverage:a]];
-    self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
-                                [LMPDayAhead getOFFPeakAverage:a]];
-    NSString *hp1 = [NSString string];
-    NSString *hp2 = [NSString string];
-    float price;
-    for (int he = 1; he <13; he++) {
-        price = [a[he-1] floatValue];
-        hp1 = [hp1 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+    if (a) {
+        self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
+                                   [LMPDayAhead getONPeakAverage:a]];
+        self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
+                                    [LMPDayAhead getOFFPeakAverage:a]];
+        NSString *hp1 = [NSString string];
+        NSString *hp2 = [NSString string];
+        float price;
+        for (int he = 1; he <13; he++) {
+            price = [a[he-1] floatValue];
+            hp1 = [hp1 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+        }
+        for (int he = 13; he <25; he++) {
+            price = [a[he-1] floatValue];
+            hp2 = [hp2 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+        }
+        
+        self.hp1Display.text = hp1;
+        self.hp2Display.text = hp2;
     }
-    for (int he = 13; he <25; he++) {
-        price = [a[he-1] floatValue];
-        hp2 = [hp2 stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
-    }
-
-    self.hp1Display.text = hp1;
-    self.hp2Display.text = hp2;
+    if (!a) self.offPeakDisplay.text = @"No prices available yet.";
     [self.activityIndicator stopAnimating];
 }
 
@@ -143,8 +146,8 @@
     NSString *formattedDateString = [dateFormatter stringFromDate:aDate];
     self.dateDisplay.text = formattedDateString;
 
-    self.onPeakDisplay.text = @"On Peak = $00.00";
-    self.offPeakDisplay.text = @"Off Peak = $00.00";
+    self.onPeakDisplay.text = @"";
+    self.offPeakDisplay.text = @"";
     self.hp1Display.text = @"";
     self.hp2Display.text = @"";
 }
