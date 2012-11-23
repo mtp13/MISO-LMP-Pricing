@@ -75,15 +75,17 @@
                                    [LMPDayAhead getONPeakAverage:a]];
         self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
                                     [LMPDayAhead getOFFPeakAverage:a]];
-        NSString *hourlyPrices = [NSString string];
+        NSString *hourlyPriceDisplayString = [NSString string];
         float price;
         for (int he = 1; he <25; he++) {
             price = [a[he-1] floatValue];
-            hourlyPrices = [hourlyPrices stringByAppendingFormat:@"HE %i       %.2f", he, price];
-            if (he != 24) hourlyPrices =
-                [hourlyPrices stringByAppendingFormat:@"\n"];            
+            hourlyPriceDisplayString = [hourlyPriceDisplayString
+                                        stringByAppendingFormat:
+                                        @"HE %i       %.2f", he, price];
+            if (he != 24) hourlyPriceDisplayString =
+                [hourlyPriceDisplayString stringByAppendingFormat:@"\n"];
         }
-        self.hourlyPricesDisplay.text = hourlyPrices;
+        self.hourlyPricesDisplay.text = hourlyPriceDisplayString;
     }
     if (!a) self.offPeakDisplay.text = @"No prices available yet.";
     [self.activityIndicator stopAnimating];
