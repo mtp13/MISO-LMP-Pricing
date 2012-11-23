@@ -43,12 +43,11 @@
                                     <action selector="changeLMPDate:" destination="2" eventType="valueChanged" id="1sa-XK-EBU"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuq-4s-F2y">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuq-4s-F2y">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="Xm3-4F-xBU"/>
-                                    <constraint firstAttribute="width" constant="196" id="wMi-8w-fEa"/>
+                                    <constraint firstAttribute="height" constant="253" id="D0I-pi-xKy"/>
                                 </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -56,25 +55,26 @@
                                 <color key="color" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kYT-GW-08Z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5v4-X3-mOS"/>
                             <constraint firstAttribute="trailing" secondItem="ePL-8d-xCr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H5s-sD-8Tj"/>
+                            <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="3" secondAttribute="top" constant="84" id="Lly-uQ-e4D"/>
                             <constraint firstItem="ePL-8d-xCr" firstAttribute="top" secondItem="k1V-JJ-Qaj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Mfv-27-lGz"/>
-                            <constraint firstItem="P3Z-8f-4IW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="227" id="Ogl-ss-pnA"/>
+                            <constraint firstItem="kuq-4s-F2y" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Os5-Dz-2tg"/>
+                            <constraint firstAttribute="trailing" secondItem="kuq-4s-F2y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PTL-go-Riq"/>
                             <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="ePL-8d-xCr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T4I-Gu-pLq"/>
-                            <constraint firstItem="kuq-4s-F2y" firstAttribute="top" secondItem="3" secondAttribute="top" constant="111" id="XQ8-hq-sVQ"/>
                             <constraint firstItem="P3Z-8f-4IW" firstAttribute="centerX" secondItem="kYT-GW-08Z" secondAttribute="centerX" type="default" id="Xez-95-pZK"/>
                             <constraint firstItem="G1t-Fj-ZQa" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zzv-N0-ljO"/>
                             <constraint firstAttribute="bottom" secondItem="G1t-Fj-ZQa" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bzf-yS-VRR"/>
                             <constraint firstItem="kYT-GW-08Z" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="foR-3j-V9e"/>
                             <constraint firstItem="k1V-JJ-Qaj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j6B-op-Hlh"/>
+                            <constraint firstItem="kuq-4s-F2y" firstAttribute="top" secondItem="3" secondAttribute="top" constant="121" id="k3c-lp-bcL"/>
                             <constraint firstAttribute="trailing" secondItem="G1t-Fj-ZQa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ko2-dR-INW"/>
                             <constraint firstItem="k1V-JJ-Qaj" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="n2D-Kh-nyr"/>
                             <constraint firstAttribute="trailing" secondItem="k1V-JJ-Qaj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oEV-rP-v36"/>
                             <constraint firstItem="ePL-8d-xCr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rOc-oc-CjT"/>
-                            <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="3" secondAttribute="top" constant="84" id="sQc-bs-nWE"/>
-                            <constraint firstItem="kuq-4s-F2y" firstAttribute="centerX" secondItem="P3Z-8f-4IW" secondAttribute="centerX" type="default" id="seY-gg-Kt3"/>
+                            <constraint firstItem="P3Z-8f-4IW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="211" id="sJh-UN-sqU"/>
                         </constraints>
                     </view>
                     <connections>

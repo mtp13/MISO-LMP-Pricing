@@ -79,7 +79,9 @@
         float price;
         for (int he = 1; he <25; he++) {
             price = [a[he-1] floatValue];
-            hourlyPrices = [hourlyPrices stringByAppendingFormat:@"HE %i = %.2f\n", he, price];
+            hourlyPrices = [hourlyPrices stringByAppendingFormat:@"HE %i       %.2f", he, price];
+            if (he != 24) hourlyPrices =
+                [hourlyPrices stringByAppendingFormat:@"\n"];            
         }
         self.hourlyPricesDisplay.text = hourlyPrices;
     }
