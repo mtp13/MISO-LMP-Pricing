@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *offPeakDisplay;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextView *hourlyPricesDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 @end

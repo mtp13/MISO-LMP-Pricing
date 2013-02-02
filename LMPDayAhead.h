@@ -13,5 +13,5 @@
 + (NSDictionary *)getHourlyPricesFromFile: (NSString *)aFile;
 + (float) getONPeakAverage:(NSArray *)prices;
 + (float) getOFFPeakAverage:(NSArray *)prices;
-
++ (float) getProfit:(NSArray *)prices;
 @end

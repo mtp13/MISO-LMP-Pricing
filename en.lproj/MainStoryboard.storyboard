@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -12,28 +12,32 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="On Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePL-8d-xCr">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="On Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ePL-8d-xCr">
+                                <rect key="frame" x="20" y="60" width="280" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k1V-JJ-Qaj">
+                                <rect key="frame" x="20" y="20" width="280" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1V-JJ-Qaj">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="R7Z-yU-noD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Off Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kYT-GW-08Z">
+                                <rect key="frame" x="20" y="92" width="280" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Off Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYT-GW-08Z">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="l07-M9-epf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Profit = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xah-Qe-QqN">
+                                <rect key="frame" x="20" y="124" width="280" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Fj-ZQa">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="G1t-Fj-ZQa">
+                                <rect key="frame" x="20" y="397" width="280" height="44"/>
                                 <segments>
                                     <segment title="Yesterday"/>
                                     <segment title="Today"/>
@@ -43,39 +47,18 @@
                                     <action selector="changeLMPDate:" destination="2" eventType="valueChanged" id="1sa-XK-EBU"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuq-4s-F2y">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="253" id="D0I-pi-xKy"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" id="kuq-4s-F2y">
+                                <rect key="frame" x="20" y="173" width="280" height="201"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="P3Z-8f-4IW">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="P3Z-8f-4IW">
+                                <rect key="frame" x="142" y="211" width="37" height="37"/>
                                 <color key="color" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kYT-GW-08Z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5v4-X3-mOS"/>
-                            <constraint firstAttribute="trailing" secondItem="ePL-8d-xCr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H5s-sD-8Tj"/>
-                            <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="3" secondAttribute="top" constant="84" id="Lly-uQ-e4D"/>
-                            <constraint firstItem="ePL-8d-xCr" firstAttribute="top" secondItem="k1V-JJ-Qaj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Mfv-27-lGz"/>
-                            <constraint firstItem="kuq-4s-F2y" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Os5-Dz-2tg"/>
-                            <constraint firstAttribute="trailing" secondItem="kuq-4s-F2y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PTL-go-Riq"/>
-                            <constraint firstItem="kYT-GW-08Z" firstAttribute="top" secondItem="ePL-8d-xCr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T4I-Gu-pLq"/>
-                            <constraint firstItem="P3Z-8f-4IW" firstAttribute="centerX" secondItem="kYT-GW-08Z" secondAttribute="centerX" type="default" id="Xez-95-pZK"/>
-                            <constraint firstItem="G1t-Fj-ZQa" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zzv-N0-ljO"/>
-                            <constraint firstAttribute="bottom" secondItem="G1t-Fj-ZQa" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bzf-yS-VRR"/>
-                            <constraint firstItem="kYT-GW-08Z" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="foR-3j-V9e"/>
-                            <constraint firstItem="k1V-JJ-Qaj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j6B-op-Hlh"/>
-                            <constraint firstItem="kuq-4s-F2y" firstAttribute="top" secondItem="3" secondAttribute="top" constant="121" id="k3c-lp-bcL"/>
-                            <constraint firstAttribute="trailing" secondItem="G1t-Fj-ZQa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ko2-dR-INW"/>
-                            <constraint firstItem="k1V-JJ-Qaj" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="n2D-Kh-nyr"/>
-                            <constraint firstAttribute="trailing" secondItem="k1V-JJ-Qaj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oEV-rP-v36"/>
-                            <constraint firstItem="ePL-8d-xCr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rOc-oc-CjT"/>
-                            <constraint firstItem="P3Z-8f-4IW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="211" id="sJh-UN-sqU"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="P3Z-8f-4IW" id="r2h-01-1l4"/>
@@ -83,11 +66,12 @@
                         <outlet property="hourlyPricesDisplay" destination="kuq-4s-F2y" id="Bhm-u0-HAq"/>
                         <outlet property="offPeakDisplay" destination="kYT-GW-08Z" id="Kai-F0-zj6"/>
                         <outlet property="onPeakDisplay" destination="ePL-8d-xCr" id="Lc7-RB-q6D"/>
+                        <outlet property="profitLabel" destination="xah-Qe-QqN" id="F5R-99-6cP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="54"/>
+            <point key="canvasLocation" x="-574" y="15"/>
         </scene>
     </scenes>
     <classes>
@@ -100,10 +84,8 @@
                 <relationship kind="outlet" name="hourlyPricesDisplay" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="offPeakDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="onPeakDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profitLabel" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

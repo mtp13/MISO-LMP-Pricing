@@ -14,10 +14,10 @@
 
 @implementation LMPViewController
 
-@synthesize dateDisplay = _dateDisplay;
-@synthesize onPeakDisplay = _onPeakDisplay;
-@synthesize offPeakDisplay = _offPeakDisplay;
-@synthesize activityIndicator = _activityIndicator;
+//@synthesize dateDisplay = _dateDisplay;
+//@synthesize onPeakDisplay = _onPeakDisplay;
+//@synthesize offPeakDisplay = _offPeakDisplay;
+//@synthesize activityIndicator = _activityIndicator;
 
 - (IBAction)changeLMPDate:(id)sender
 {
@@ -75,6 +75,14 @@
                                    [LMPDayAhead getONPeakAverage:a]];
         self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
                                     [LMPDayAhead getOFFPeakAverage:a]];
+
+        NSNumber *profit = [NSNumber numberWithFloat:[LMPDayAhead getProfit:a]];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        NSString *profitString = [numberFormatter stringFromNumber:profit];
+        self.profitLabel.text = [@"Profit = " stringByAppendingString:
+                                 profitString];
+
         NSString *hourlyPriceDisplayString = [NSString string];
         float price;
         for (int he = 1; he <25; he++) {
@@ -145,6 +153,7 @@
     self.onPeakDisplay.text = @"";
     self.offPeakDisplay.text = @"";
     self.hourlyPricesDisplay.text = @"";
+    self.profitLabel.text=@"";
 }
 
 @end

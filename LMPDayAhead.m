@@ -69,4 +69,36 @@
     return average / 8.0;
 }
 
++ (float) getProfit:(NSArray *)prices
+{
+    float dispatch = 22.08;
+    float minDispatch = 20.05;
+    float noLoadCost = 331;
+    int minGen = 47;
+    int maxGen = 167;
+    float revenue = 0;
+    float expense = 0;
+    float profit = 0;
+
+    for (int hour = 0; hour < 24; hour++) {
+        float p = [prices[hour] floatValue];
+        if (p < dispatch) {
+            revenue += minGen * p;
+            expense += minGen * minDispatch;
+        } else {
+            revenue += maxGen * p;
+            expense += maxGen * dispatch;
+        }
+    }
+
+    profit = revenue - (expense + 24 * noLoadCost);
+
+    return profit;
+}
 @end
+
+
+
+
+
+
