@@ -30,8 +30,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Profit = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xah-Qe-QqN">
-                                <rect key="frame" x="20" y="124" width="280" height="24"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Profit = $0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xah-Qe-QqN">
+                                <rect key="frame" x="20" y="124" width="280" height="27"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="P3Z-8f-4IW" id="r2h-01-1l4"/>
-                        <outlet property="dateDisplay" destination="k1V-JJ-Qaj" id="zRi-w9-4ME"/>
-                        <outlet property="hourlyPricesDisplay" destination="kuq-4s-F2y" id="Bhm-u0-HAq"/>
-                        <outlet property="offPeakDisplay" destination="kYT-GW-08Z" id="Kai-F0-zj6"/>
-                        <outlet property="onPeakDisplay" destination="ePL-8d-xCr" id="Lc7-RB-q6D"/>
+                        <outlet property="dateLabel" destination="k1V-JJ-Qaj" id="rZi-2T-vZk"/>
+                        <outlet property="hourlyPricesLabel" destination="kuq-4s-F2y" id="14J-cx-Q0b"/>
+                        <outlet property="offPeakLabel" destination="kYT-GW-08Z" id="fNC-Of-fnX"/>
+                        <outlet property="onPeakLabel" destination="ePL-8d-xCr" id="eqh-RF-HrL"/>
                         <outlet property="profitLabel" destination="xah-Qe-QqN" id="F5R-99-6cP"/>
                     </connections>
                 </viewController>
@@ -80,10 +80,10 @@
             <relationships>
                 <relationship kind="action" name="changeLMPDate:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="dateDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hourlyPricesDisplay" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="offPeakDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="onPeakDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hourlyPricesLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="offPeakLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="onPeakLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profitLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

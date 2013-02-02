@@ -14,11 +14,6 @@
 
 @implementation LMPViewController
 
-//@synthesize dateDisplay = _dateDisplay;
-//@synthesize onPeakDisplay = _onPeakDisplay;
-//@synthesize offPeakDisplay = _offPeakDisplay;
-//@synthesize activityIndicator = _activityIndicator;
-
 - (IBAction)changeLMPDate:(id)sender
 {
     NSDate *LMPDate;
@@ -69,16 +64,17 @@
     NSString *f = [[NSString alloc] initWithData:receivedData
                                         encoding:NSUTF8StringEncoding];
     NSDictionary *hourlyPrices = [LMPDayAhead getHourlyPricesFromFile:f];
-    NSArray *a = [hourlyPrices objectForKey:@"EEI_Interface_LMP"];
-    if (a) {
-        self.onPeakDisplay.text = [NSString stringWithFormat:@"On Peak = $%.2f",
-                                   [LMPDayAhead getONPeakAverage:a]];
-        self.offPeakDisplay.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
-                                    [LMPDayAhead getOFFPeakAverage:a]];
+    NSArray *eeiPrices = hourlyPrices[@"EEI_Interface_LMP"];
+    if (eeiPrices) {
+        self.onPeakLabel.text = [NSString stringWithFormat:@"On Peak = $%.2f",
+                                   [LMPDayAhead getONPeakAverage:eeiPrices]];
+        self.offPeakLabel.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
+                                    [LMPDayAhead getOFFPeakAverage:eeiPrices]];
 
-        NSNumber *profit = [NSNumber numberWithFloat:[LMPDayAhead getProfit:a]];
+        NSNumber *profit = [NSNumber numberWithFloat:[LMPDayAhead getProfit:eeiPrices]];
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setMaximumFractionDigits:0];
         NSString *profitString = [numberFormatter stringFromNumber:profit];
         self.profitLabel.text = [@"Profit = " stringByAppendingString:
                                  profitString];
@@ -86,16 +82,16 @@
         NSString *hourlyPriceDisplayString = [NSString string];
         float price;
         for (int he = 1; he <25; he++) {
-            price = [a[he-1] floatValue];
+            price = [eeiPrices[he-1] floatValue];
             hourlyPriceDisplayString = [hourlyPriceDisplayString
                                         stringByAppendingFormat:
                                         @"HE %i       %.2f", he, price];
             if (he != 24) hourlyPriceDisplayString =
-                [hourlyPriceDisplayString stringByAppendingFormat:@"\n"];
+                [hourlyPriceDisplayString stringByAppendingString:@"\n"];
         }
-        self.hourlyPricesDisplay.text = hourlyPriceDisplayString;
+        self.hourlyPricesLabel.text = hourlyPriceDisplayString;
     }
-    if (!a) self.offPeakDisplay.text = @"No prices available yet.";
+    if (!eeiPrices) self.offPeakLabel.text = @"No prices available yet.";
     [self.activityIndicator stopAnimating];
 }
 
@@ -149,10 +145,10 @@
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     NSString *formattedDateString = [dateFormatter stringFromDate:aDate];
-    self.dateDisplay.text = formattedDateString;
-    self.onPeakDisplay.text = @"";
-    self.offPeakDisplay.text = @"";
-    self.hourlyPricesDisplay.text = @"";
+    self.dateLabel.text = formattedDateString;
+    self.onPeakLabel.text = @"";
+    self.offPeakLabel.text = @"";
+    self.hourlyPricesLabel.text = @"";
     self.profitLabel.text=@"";
 }
 

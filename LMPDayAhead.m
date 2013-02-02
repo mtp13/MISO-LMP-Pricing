@@ -17,27 +17,24 @@
     NSMutableDictionary *hourlyPrices = [[NSMutableDictionary alloc] init];
         
     NSArray *lines = [aFile componentsSeparatedByString:@"\n"];
-    for (NSString *l in lines) {
-        csvFields = [self parseCSV:l];
+    for (NSString *line in lines) {
+        csvFields = [self parseCSV:line];
         if (foundData) {
             if ([csvFields count] == 27) {
                 NSString *k = [NSString stringWithFormat:@"%@_%@_%@",
-                               [csvFields objectAtIndex:0],
-                               [csvFields objectAtIndex:1],
-                               [csvFields objectAtIndex:2]];
+                               csvFields[0], csvFields[1], csvFields[2]];
                 NSRange theRange;
                 theRange.location = 3;
                 theRange.length = [csvFields count] - 3;
                 NSArray *a = [csvFields subarrayWithRange:theRange];
-                [hourlyPrices setObject:a forKey:k];
+                hourlyPrices[k] = a;
             }
         }
         else {
-            if ([[csvFields objectAtIndex:0] isEqual:@"Node"]) {
+            if ([csvFields[0] isEqual:@"Node"]) {
                 foundData = YES;
             }
         }
-        
     }
     return hourlyPrices;
 }
@@ -51,7 +48,7 @@
 {
     float average = 0;
     for (int i = 6; i <= 21; i++){
-        average += [[prices objectAtIndex:i] floatValue];
+        average += [prices[i] floatValue];
         
     }
     return average / 16.0;
@@ -61,10 +58,10 @@
 {
     float average = 0;
     for (int i = 0; i <= 5; i++){
-        average += [[prices objectAtIndex:i] floatValue];
+        average += [prices[i] floatValue];
     }
     for (int i = 22; i <= 23; i++){
-        average += [[prices objectAtIndex:i] floatValue];
+        average += [prices[i] floatValue];
     }
     return average / 8.0;
 }
@@ -81,12 +78,12 @@
     float profit = 0;
 
     for (int hour = 0; hour < 24; hour++) {
-        float p = [prices[hour] floatValue];
-        if (p < dispatch) {
-            revenue += minGen * p;
+        float price = [prices[hour] floatValue];
+        if (price < dispatch) {
+            revenue += minGen * price;
             expense += minGen * minDispatch;
         } else {
-            revenue += maxGen * p;
+            revenue += maxGen * price;
             expense += maxGen * dispatch;
         }
     }
@@ -96,9 +93,3 @@
     return profit;
 }
 @end
-
-
-
-
-
-

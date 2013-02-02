@@ -13,10 +13,10 @@
     NSURLConnection *connection;
     NSMutableData *receivedData;
 }
-@property (weak, nonatomic) IBOutlet UILabel *dateDisplay;
-@property (weak, nonatomic) IBOutlet UILabel *onPeakDisplay;
-@property (weak, nonatomic) IBOutlet UILabel *offPeakDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *onPeakLabel;
+@property (weak, nonatomic) IBOutlet UILabel *offPeakLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UITextView *hourlyPricesDisplay;
+@property (weak, nonatomic) IBOutlet UITextView *hourlyPricesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 @end
