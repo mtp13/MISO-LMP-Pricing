@@ -71,7 +71,7 @@
         self.offPeakLabel.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
                                     [LMPDayAhead getOFFPeakAverage:eeiPrices]];
 
-        NSNumber *profit = [NSNumber numberWithFloat:[LMPDayAhead getProfit:eeiPrices]];
+        NSNumber *profit = [NSNumber numberWithDouble:[LMPDayAhead getProfit:eeiPrices]];
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 //        [numberFormatter setMaximumFractionDigits:0];
@@ -80,9 +80,9 @@
                                  profitString];
 
         NSString *hourlyPriceDisplayString = [NSString string];
-        float price;
+        double price;
         for (int he = 1; he <25; he++) {
-            price = [eeiPrices[he-1] floatValue];
+            price = [eeiPrices[he-1] doubleValue];
             hourlyPriceDisplayString = [hourlyPriceDisplayString
                                         stringByAppendingFormat:
                                         @"HE %i       %.2f", he, price];

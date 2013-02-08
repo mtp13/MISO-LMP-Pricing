@@ -44,24 +44,24 @@
     return [s componentsSeparatedByString:@","];
 }
 
-+ (float) getONPeakAverage:(NSArray *)prices
++ (double) getONPeakAverage:(NSArray *)prices
 {
-    float average = 0;
+    double average = 0;
     for (int i = 6; i <= 21; i++){
-        average += [prices[i] floatValue];
+        average += [prices[i] doubleValue];
         
     }
     return average / 16.0;
 }
 
-+ (float) getOFFPeakAverage:(NSArray *)prices
++ (double) getOFFPeakAverage:(NSArray *)prices
 {
-    float average = 0;
+    double average = 0;
     for (int i = 0; i <= 5; i++){
-        average += [prices[i] floatValue];
+        average += [prices[i] doubleValue];
     }
     for (int i = 22; i <= 23; i++){
-        average += [prices[i] floatValue];
+        average += [prices[i] doubleValue];
     }
     return average / 8.0;
 }
@@ -74,24 +74,24 @@
 #define minGen 47
 #define maxGen Q2
 
-+ (float)calculateAverageCost:(float)dispatch
++ (double)calculateAverageCost:(double)dispatch
 {
-    float P = dispatch - 1;
+    double P = dispatch - 1;
     return (P * P1 + 0.5 * P * P * (P2 - P1) / (Q2 - Q1) + P1) / dispatch + NL / dispatch;
 }
 
-+ (float)getProfit:(NSArray *)prices
++ (double)getProfit:(NSArray *)prices
 {
-    float incrementalCost = P2;
-    float revenue = 0;
-    float expense = 0;
-    float profit = 0;
+    double incrementalCost = P2;
+    double revenue = 0;
+    double expense = 0;
+    double profit = 0;
 
-    float averageMinCost = [LMPDayAhead calculateAverageCost:minGen];
-    float averageMaxCost = [LMPDayAhead calculateAverageCost:maxGen];
+    double averageMinCost = [LMPDayAhead calculateAverageCost:minGen];
+    double averageMaxCost = [LMPDayAhead calculateAverageCost:maxGen];
 
     for (int hour = 0; hour < 24; hour++) {
-        float price = [prices[hour] floatValue];
+        double price = [prices[hour] doubleValue];
         if (price < incrementalCost) {
             revenue += minGen * price;
             expense += minGen * averageMinCost;
