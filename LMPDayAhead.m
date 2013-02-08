@@ -66,29 +66,42 @@
     return average / 8.0;
 }
 
-+ (float) getProfit:(NSArray *)prices
+#define P1 19.27
+#define P2 22.08
+#define Q1 1
+#define Q2 167
+#define NL 331
+#define minGen 47
+#define maxGen Q2
+
++ (float)calculateAverageCost:(float)dispatch
 {
-    float dispatch = 22.08;
-    float minDispatch = 20.05;
-    float noLoadCost = 331;
-    int minGen = 47;
-    int maxGen = 167;
+    float P = dispatch - 1;
+    return (P * P1 + 0.5 * P * P * (P2 - P1) / (Q2 - Q1) + P1) / dispatch + NL / dispatch;
+}
+
++ (float)getProfit:(NSArray *)prices
+{
+    float incrementalCost = P2;
     float revenue = 0;
     float expense = 0;
     float profit = 0;
 
+    float averageMinCost = [LMPDayAhead calculateAverageCost:minGen];
+    float averageMaxCost = [LMPDayAhead calculateAverageCost:maxGen];
+
     for (int hour = 0; hour < 24; hour++) {
         float price = [prices[hour] floatValue];
-        if (price < dispatch) {
+        if (price < incrementalCost) {
             revenue += minGen * price;
-            expense += minGen * minDispatch;
+            expense += minGen * averageMinCost;
         } else {
             revenue += maxGen * price;
-            expense += maxGen * dispatch;
+            expense += maxGen * averageMaxCost;
         }
     }
 
-    profit = revenue - (expense + 24 * noLoadCost);
+    profit = revenue - expense;
 
     return profit;
 }

@@ -74,7 +74,7 @@
         NSNumber *profit = [NSNumber numberWithFloat:[LMPDayAhead getProfit:eeiPrices]];
         NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        [numberFormatter setMaximumFractionDigits:0];
+//        [numberFormatter setMaximumFractionDigits:0];
         NSString *profitString = [numberFormatter stringFromNumber:profit];
         self.profitLabel.text = [@"Profit = " stringByAppendingString:
                                  profitString];
