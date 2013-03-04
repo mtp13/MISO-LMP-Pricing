@@ -28,8 +28,15 @@
                         [Prices averageOfOffPeakPrices:self.prices]];
     double profit = [Prices profitForPrices:self.prices];
     self.profitLabel.text = [NSString stringWithFormat:@"Profit = %@",
-                             [Prices doubleAsCurrencyStyle:profit]];
+                             [self doubleAsCurrencyStyle:profit]];
     self.pricesTextView.text = [Prices pricesAsString:self.prices];
+}
+
+- (NSString *)doubleAsCurrencyStyle:(double)aDouble
+{
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:aDouble]];
 }
 
 -(void)viewDidLoad {

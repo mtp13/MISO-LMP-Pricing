@@ -69,13 +69,6 @@
     return profit;
 }
 
-+ (NSString *)doubleAsCurrencyStyle:(double)aDouble
-{
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    return [numberFormatter stringFromNumber:[NSNumber numberWithDouble:aDouble]];
-}
-
 +(NSString *)pricesAsString:(NSArray *)prices
 {
     NSString *hourlyPriceDisplayString = [NSString string];

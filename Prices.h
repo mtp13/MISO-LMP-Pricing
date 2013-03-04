@@ -14,6 +14,5 @@
 + (double)averageOfOffPeakPrices:(NSArray *)prices;
 + (double)profitForPrices:(NSArray *)prices;
 + (NSString *)pricesAsString:(NSArray *)prices;
-+ (NSString *)doubleAsCurrencyStyle:(double)aDouble;
 
 @end

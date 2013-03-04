@@ -41,7 +41,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </mutableData>
                                 </timeZone>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EEI_Interface_LMP" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yh-744">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EEI_Interface_LMP" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yh-744">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -78,7 +78,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COd-CM-FtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="-257"/>
+            <point key="canvasLocation" x="-221" y="-257"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="5">
@@ -142,7 +142,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="-257"/>
+            <point key="canvasLocation" x="171" y="-257"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GMa-Wb-LaS">
@@ -163,27 +163,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-629" y="-257"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PricesChooserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesChooserViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nodeLabel" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pricesDatePicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="PricesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="offPeakLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="onPeakLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pricesTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="profitLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
