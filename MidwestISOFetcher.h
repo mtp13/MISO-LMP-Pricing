@@ -10,6 +10,6 @@
 
 @interface MidwestISOFetcher : NSObject
 
-+(NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node;
++ (NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node;
 
 @end

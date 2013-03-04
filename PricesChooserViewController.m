@@ -11,16 +11,18 @@
 #import "PricesViewController.h"
 
 @interface PricesChooserViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *nodeLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *pricesDatePicker;
 @property (weak, nonatomic) NSString *node;
 @property (weak, nonatomic) NSDate *date;
 @property (weak, nonatomic) NSArray *prices;
+
 @end
 
 @implementation PricesChooserViewController
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowPrices"]) {
         if ([segue.destinationViewController isKindOfClass:[PricesViewController class]]) {
@@ -31,34 +33,33 @@
     }
 }
 
--(NSString *)dateAsString:(NSDate *)date
+- (NSString *)dateAsString:(NSDate *)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterLongStyle];
     return [formatter stringFromDate:date];
 }
 
--(NSDate *)date
+- (NSDate *)date
 {
     return [self.pricesDatePicker date];
 }
 
--(NSString *)node
+- (NSString *)node
 {
     return self.nodeLabel.text;
 }
 
--(NSArray *)prices
+- (NSArray *)prices
 {
     return [MidwestISOFetcher pricesForDate:self.date
                                        node:self.node];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setDay:1];
-
     NSDate *tomorrow = [[NSCalendar currentCalendar]
                         dateByAddingComponents:componentsToAdd
                         toDate:[NSDate date]

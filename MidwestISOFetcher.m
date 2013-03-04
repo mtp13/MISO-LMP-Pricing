@@ -10,13 +10,13 @@
 
 @implementation MidwestISOFetcher
 
-+(NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node
++ (NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node
 {
     NSDictionary *dictionary = [self executeMidwestISOFetch:date];
     return [dictionary objectForKey:node];
 }
 
-+(NSURL *)misoURLFromDate:(NSDate *)date
++ (NSURL *)misoURLFromDate:(NSDate *)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMdd"];
@@ -40,7 +40,7 @@
     return results;
 }
 
-+(NSDictionary *)dictionaryFromData:(NSData *)data
++ (NSDictionary *)dictionaryFromData:(NSData *)data
 {
     NSString *stringData = [[NSString alloc] initWithData:data
                                                  encoding:NSUTF8StringEncoding];
