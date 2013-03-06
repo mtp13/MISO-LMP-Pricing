@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Prices.h"
 
 @interface PricesViewController : UIViewController
 
-@property (nonatomic, strong) NSArray *prices; // of double
+@property (nonatomic, strong) Prices *prices;
 
 @end

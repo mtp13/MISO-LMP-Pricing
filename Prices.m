@@ -10,23 +10,23 @@
 
 @implementation Prices
 
-+ (double)averageOfOnPeakPrices:(NSArray *)prices
+- (double)averageOfOnPeakPrices
 {
     double average = 0;
     for (int i = 6; i <= 21; i++){
-        average += [prices[i] doubleValue];
+        average += [self.hourlyPrices[i] doubleValue];
     }
     return average / 16.0;
 }
 
-+ (double)averageOfOffPeakPrices:(NSArray *)prices
+- (double)averageOfOffPeakPrices
 {
     double average = 0;
     for (int i = 0; i <= 5; i++){
-        average += [prices[i] doubleValue];
+        average += [self.hourlyPrices[i] doubleValue];
     }
     for (int i = 22; i <= 23; i++){
-        average += [prices[i] doubleValue];
+        average += [self.hourlyPrices[i] doubleValue];
     }
     return average / 8.0;
 }
@@ -39,13 +39,13 @@
 #define minGen 47
 #define maxGen Q2
 
-+ (double)averageCostForDispatchLevel:(double)dispatch
+- (double)averageCostForDispatchLevel:(double)dispatch
 {
     double P = dispatch - 1;
     return (P * P1 + 0.5 * P * P * (P2 - P1) / (Q2 - Q1) + P1) / dispatch + NL / dispatch;
 }
 
-+ (double)profitForPrices:(NSArray *)prices
+- (double)profitForPrices
 {
     double incrementalCost = P2;
     double revenue = 0;
@@ -56,7 +56,7 @@
     double averageMaxCost = [self averageCostForDispatchLevel:maxGen];
 
     for (int hour = 0; hour < 24; hour++) {
-        double price = [prices[hour] doubleValue];
+        double price = [self.hourlyPrices[hour] doubleValue];
         if (price < incrementalCost) {
             revenue += minGen * price;
             expense += minGen * averageMinCost;
@@ -69,19 +69,6 @@
     return profit;
 }
 
-+(NSString *)pricesAsString:(NSArray *)prices
-{
-    NSString *hourlyPriceDisplayString = [NSString string];
-    double price;
-    for (int he = 1; he <25; he++) {
-        price = [prices[he-1] doubleValue];
-        hourlyPriceDisplayString = [hourlyPriceDisplayString
-                                    stringByAppendingFormat:
-                                    @"HE %i       %.2f", he, price];
-        if (he != 24) hourlyPriceDisplayString =
-            [hourlyPriceDisplayString stringByAppendingString:@"\n"];
-    }
-    return hourlyPriceDisplayString;
-}
+
 
 @end

@@ -10,9 +10,10 @@
 
 @interface Prices : NSObject
 
-+ (double)averageOfOnPeakPrices:(NSArray *)prices;
-+ (double)averageOfOffPeakPrices:(NSArray *)prices;
-+ (double)profitForPrices:(NSArray *)prices;
-+ (NSString *)pricesAsString:(NSArray *)prices;
+@property (nonatomic) NSArray *hourlyPrices;
+
+- (double)averageOfOnPeakPrices;
+- (double)averageOfOffPeakPrices;
+- (double)profitForPrices;
 
 @end

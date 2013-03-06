@@ -27,7 +27,7 @@
     if ([segue.identifier isEqualToString:@"ShowPrices"]) {
         if ([segue.destinationViewController isKindOfClass:[PricesViewController class]]) {
             PricesViewController *pvc = (PricesViewController *)segue.destinationViewController;
-            pvc.prices = self.prices;
+            pvc.prices.hourlyPrices = self.prices;
             pvc.title = [self dateAsString:self.date];
         }
     }
