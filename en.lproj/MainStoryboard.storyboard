@@ -20,7 +20,7 @@
                                     <!--2013-03-03 22:04:40 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -38,7 +38,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EEI_Interface_LMP" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yh-744">
@@ -61,13 +61,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JYF-Zd-a4t" firstAttribute="trailing" secondItem="uKJ-DW-Mcx" secondAttribute="trailing" type="default" id="5jW-Tf-jCh"/>
+                            <constraint firstItem="JYF-Zd-a4t" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" type="default" id="8lF-lE-36r"/>
                             <constraint firstItem="96R-vZ-x5h" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" constant="104" id="DbE-Vc-wGU"/>
                             <constraint firstAttribute="bottom" secondItem="96R-vZ-x5h" secondAttribute="bottom" constant="71" id="I0K-KO-gKe"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="top" secondItem="uKJ-DW-Mcx" secondAttribute="top" type="default" id="Itm-uy-bz3"/>
-                            <constraint firstAttribute="bottom" secondItem="VFI-yh-744" secondAttribute="bottom" constant="144" id="bjT-W1-SXU"/>
-                            <constraint firstItem="VFI-yh-744" firstAttribute="centerX" secondItem="JYF-Zd-a4t" secondAttribute="centerX" type="default" id="l8f-4F-4TC"/>
-                            <constraint firstItem="JYF-Zd-a4t" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" type="default" id="tTi-wl-2pS"/>
+                            <constraint firstItem="VFI-yh-744" firstAttribute="centerX" secondItem="JYF-Zd-a4t" secondAttribute="centerX" type="default" id="Kvx-5M-X0H"/>
+                            <constraint firstItem="JYF-Zd-a4t" firstAttribute="trailing" secondItem="uKJ-DW-Mcx" secondAttribute="trailing" type="default" id="OgA-3k-Qoe"/>
+                            <constraint firstAttribute="bottom" secondItem="VFI-yh-744" secondAttribute="bottom" constant="151" id="ly9-Rq-zce"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose Date" id="v9G-XR-ZWT"/>
@@ -78,7 +78,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COd-CM-FtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-221" y="-257"/>
+            <point key="canvasLocation" x="-224" y="-298"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="5">
@@ -163,6 +163,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-629" y="-257"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PricesChooserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesChooserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nodeLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pricesDatePicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="PricesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="offPeakLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="onPeakLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pricesTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="profitLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
