@@ -10,18 +10,18 @@
 
 @implementation Prices
 
-- (double)averageOfOnPeakPrices
+- (double)onPeakAverage
 {
-    double average = 0;
+    double average = 0.0;
     for (int i = 6; i <= 21; i++){
         average += [self.hourlyPrices[i] doubleValue];
     }
     return average / 16.0;
 }
 
-- (double)averageOfOffPeakPrices
+- (double)offPeakAverage
 {
-    double average = 0;
+    double average = 0.0;
     for (int i = 0; i <= 5; i++){
         average += [self.hourlyPrices[i] doubleValue];
     }
@@ -39,18 +39,18 @@
 #define minGen 47
 #define maxGen Q2
 
-- (double)averageCostForDispatchLevel:(double)dispatch
+- (double)averageCostForDispatchLevel:(double)dispatchLevel
 {
-    double P = dispatch - 1;
-    return (P * P1 + 0.5 * P * P * (P2 - P1) / (Q2 - Q1) + P1) / dispatch + NL / dispatch;
+    double P = dispatchLevel - 1;
+    return (P * P1 + 0.5 * P * P * (P2 - P1) / (Q2 - Q1) + P1) / dispatchLevel + NL / dispatchLevel;
 }
 
-- (double)profitForPrices
+- (double)profit
 {
     double incrementalCost = P2;
-    double revenue = 0;
-    double expense = 0;
-    double profit = 0;
+    double revenue = 0.0;
+    double expense = 0.0;
+    double profit = 0.0;
 
     double averageMinCost = [self averageCostForDispatchLevel:minGen];
     double averageMaxCost = [self averageCostForDispatchLevel:maxGen];
@@ -68,7 +68,5 @@
     profit = revenue - expense;
     return profit;
 }
-
-
 
 @end

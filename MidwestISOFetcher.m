@@ -10,24 +10,12 @@
 
 @implementation MidwestISOFetcher
 
-+ (NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node
++ (Prices *)pricesForDate:(NSDate *)date node:(NSString *)node
 {
+    Prices *prices = [[Prices alloc] init];
     NSDictionary *dictionary = [self executeMidwestISOFetch:date];
-    return [dictionary objectForKey:node];
-}
-
-+ (NSURL *)misoURLFromDate:(NSDate *)date
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyyMMdd"];
-    NSString *stringFromDate = [formatter stringFromDate:date];
-    NSString *misoURL = [NSString stringWithFormat:
-                         @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
-                         stringFromDate];
-    NSURL *url = [NSURL URLWithString:[misoURL
-                                       stringByAddingPercentEscapesUsingEncoding:
-                                       NSUTF8StringEncoding]];
-    return url;
+    prices.hourlyPrices = [dictionary objectForKey:node];
+    return prices;
 }
 
 + (NSDictionary *)executeMidwestISOFetch:(NSDate *)date
@@ -36,8 +24,20 @@
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
 
     // dictionary of prices using nodes as key
-    NSDictionary *results = [self dictionaryFromData:data];
-    return results;
+    NSDictionary *dictionary = [self dictionaryFromData:data];
+    return dictionary;
+}
+
++ (NSURL *)misoURLFromDate:(NSDate *)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSString *misoString = [NSString stringWithFormat:
+                            @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
+                            [formatter stringFromDate:date]];
+    return [NSURL URLWithString:[misoString
+                                       stringByAddingPercentEscapesUsingEncoding:
+                                       NSUTF8StringEncoding]];
 }
 
 + (NSDictionary *)dictionaryFromData:(NSData *)data
@@ -54,8 +54,8 @@
         csvFields = [self parseCSV:line];
         if (foundData) {
             if ([csvFields count] == 27) {
-                NSString *k = [NSString stringWithFormat:@"%@_%@_%@",
-                               csvFields[0], csvFields[1], csvFields[2]];
+                NSString *k = [NSString stringWithFormat:@"%@_%@",
+                               csvFields[0], csvFields[2]];
                 NSRange theRange;
                 theRange.location = 3;
                 theRange.length = [csvFields count] - 3;

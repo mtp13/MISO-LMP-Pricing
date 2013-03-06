@@ -10,7 +10,5 @@
 #import "Prices.h"
 
 @interface PricesViewController : UIViewController
-
 @property (nonatomic, strong) Prices *prices;
-
 @end

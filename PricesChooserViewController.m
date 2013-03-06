@@ -10,14 +10,14 @@
 #import "MidwestISOFetcher.h"
 #import "PricesViewController.h"
 
-@interface PricesChooserViewController ()
+#define NODE_TEXT @"EEI_LMP"
 
+@interface PricesChooserViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nodeLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *pricesDatePicker;
 @property (weak, nonatomic) NSString *node;
 @property (weak, nonatomic) NSDate *date;
-@property (weak, nonatomic) NSArray *prices;
-
+@property (weak, nonatomic) Prices *prices;
 @end
 
 @implementation PricesChooserViewController
@@ -27,7 +27,7 @@
     if ([segue.identifier isEqualToString:@"ShowPrices"]) {
         if ([segue.destinationViewController isKindOfClass:[PricesViewController class]]) {
             PricesViewController *pvc = (PricesViewController *)segue.destinationViewController;
-            pvc.prices.hourlyPrices = self.prices;
+            pvc.prices = self.prices;
             pvc.title = [self dateAsString:self.date];
         }
     }
@@ -50,20 +50,26 @@
     return self.nodeLabel.text;
 }
 
-- (NSArray *)prices
+- (Prices *)prices
 {
-    return [MidwestISOFetcher pricesForDate:self.date
-                                       node:self.node];
+    return [MidwestISOFetcher pricesForDate:self.date node:self.node];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setDay:1];
-    NSDate *tomorrow = [[NSCalendar currentCalendar]
-                        dateByAddingComponents:componentsToAdd
-                        toDate:[NSDate date]
-                        options:0];
-    self.pricesDatePicker.maximumDate = tomorrow;
+    NSDate *maximumDate = [[NSCalendar currentCalendar]
+                           dateByAddingComponents:componentsToAdd
+                           toDate:[NSDate date]
+                           options:0];
+    self.pricesDatePicker.maximumDate = maximumDate;
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    NSDate *minimumDate = [formatter dateFromString:@"1/1/2011"];
+    self.pricesDatePicker.minimumDate = minimumDate;
+    
+    self.nodeLabel.text = NODE_TEXT;
 }
 @end

@@ -10,12 +10,10 @@
 #import "Prices.h"
 
 @interface PricesViewController ()
-
 @property (weak, nonatomic) IBOutlet UILabel *onPeakLabel;
 @property (weak, nonatomic) IBOutlet UILabel *offPeakLabel;
 @property (weak, nonatomic) IBOutlet UILabel *profitLabel;
 @property (weak, nonatomic) IBOutlet UITextView *pricesTextView;
-
 @end
 
 @implementation PricesViewController
@@ -29,10 +27,10 @@
 - (void)resetPrices
 {
     self.onPeakLabel.text = [NSString stringWithFormat:@"On Peak = $%.2f",
-                        [self.prices averageOfOnPeakPrices]];
+                             [self.prices onPeakAverage]];
     self.offPeakLabel.text = [NSString stringWithFormat:@"Off Peak = $%.2f",
-                        [self.prices averageOfOffPeakPrices]];
-    double profit = [self.prices profitForPrices];
+                              [self.prices offPeakAverage]];
+    double profit = [self.prices profit];
     self.profitLabel.text = [NSString stringWithFormat:@"Profit = %@",
                              [self doubleAsCurrencyStyle:profit]];
     self.pricesTextView.text = [self pricesAsString:self.prices];
@@ -47,15 +45,12 @@
 
 - (NSString *)pricesAsString:(Prices *)prices
 {
-    NSString *displayString = [NSString string];
+    NSString *displayString = [[NSString alloc] init];
     double price;
-    for (int he = 1; he <25; he++) {
-        price = [prices.hourlyPrices[he-1] doubleValue];
-        displayString = [displayString
-                                    stringByAppendingFormat:
-                                    @"HE %i       %.2f", he, price];
-        if (he != 24) displayString =
-            [displayString stringByAppendingString:@"\n"];
+    for (int i = 0; i <24; i++) {
+        price = [prices.hourlyPrices[i] doubleValue];
+        displayString = [displayString stringByAppendingFormat:@"HE %i       %.2f", i, price];
+        if (i != 23) displayString = [displayString stringByAppendingString:@"\n"];
     }
     return displayString;
 }

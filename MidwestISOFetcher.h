@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Prices.h"
 
 @interface MidwestISOFetcher : NSObject
 
-+ (NSArray *)pricesForDate:(NSDate *)date node:(NSString *)node;
++ (Prices *)pricesForDate:(NSDate *)date node:(NSString *)node;
 
 @end
