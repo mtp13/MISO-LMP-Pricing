@@ -9,6 +9,7 @@
 #import "PricesChooserViewController.h"
 #import "MidwestISOFetcher.h"
 #import "PricesViewController.h"
+#import "PricesTVC.h"
 
 #define NODE_TEXT @"EEI_LMP"
 
@@ -29,6 +30,13 @@
             PricesViewController *pvc = (PricesViewController *)segue.destinationViewController;
             pvc.prices = self.prices;
             pvc.title = [self dateAsString:self.date];
+        }
+    }
+    if ([segue.identifier isEqualToString:@"ShowHourlyPrices"]) {
+        if ([segue.destinationViewController isKindOfClass:[PricesTVC class]]) {
+            PricesTVC *ptvc = (PricesTVC *)segue.destinationViewController;
+            ptvc.prices = self.prices;
+            ptvc.title = [self dateAsString:self.date];
         }
     }
 }
@@ -72,4 +80,5 @@
     
     self.nodeLabel.text = NODE_TEXT;
 }
+
 @end

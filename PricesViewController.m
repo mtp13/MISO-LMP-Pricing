@@ -58,4 +58,5 @@
 -(void)viewDidLoad {
     [self resetPrices];
 }
+
 @end

@@ -64,15 +64,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8fX-67-ch8" kind="push" identifier="ShowHourlyPrices" id="Ovi-jc-gQQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JYF-Zd-a4t" firstAttribute="top" secondItem="96R-vZ-x5h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1u4-8F-0hU"/>
+                            <constraint firstItem="Roq-gg-akj" firstAttribute="top" secondItem="VFI-yh-744" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Aau-hI-bb6"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="VFI-yh-744" secondAttribute="centerX" type="default" id="Awd-0o-9lE"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="uKJ-DW-Mcx" secondAttribute="centerX" type="default" id="XDg-V3-z92"/>
+                            <constraint firstItem="96R-vZ-x5h" firstAttribute="top" secondItem="Roq-gg-akj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aA8-bK-2SZ"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" type="default" id="dDY-Pq-soi"/>
-                            <constraint firstItem="96R-vZ-x5h" firstAttribute="top" secondItem="Roq-gg-akj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dTx-Dv-8Au"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="96R-vZ-x5h" secondAttribute="centerX" type="default" id="gKa-Oh-b0L"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="bottom" secondItem="uKJ-DW-Mcx" secondAttribute="bottom" type="default" id="tva-El-DSP"/>
                             <constraint firstItem="VFI-yh-744" firstAttribute="top" secondItem="uKJ-DW-Mcx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vyR-GY-302"/>
@@ -93,20 +96,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <tableViewController id="8fX-67-ch8" customClass="PricesTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dTz-7m-QK3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PricesDetail" textLabel="zZN-fm-ezR" style="IBUITableViewCellStyleDefault" id="27e-T8-yzY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HourlyPricesDetail" textLabel="9fG-LH-JnP" detailTextLabel="aBe-XR-X6d" style="IBUITableViewCellStyleValue1" id="27e-T8-yzY">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZN-fm-ezR">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fG-LH-JnP">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBe-XR-X6d">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -119,10 +127,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="8fX-67-ch8" id="wbG-0d-fsF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="6WU-3v-JXK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubp-us-2WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="-874"/>
+            <point key="canvasLocation" x="180" y="-872"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="5">
@@ -185,7 +194,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29" y="-274"/>
+            <point key="canvasLocation" x="180" y="-274"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GMa-Wb-LaS">

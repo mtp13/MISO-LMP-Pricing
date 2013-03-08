@@ -10,6 +10,8 @@
 
 @implementation MidwestISOFetcher
 
+#define TEST    NO
+
 + (Prices *)pricesForDate:(NSDate *)date node:(NSString *)node
 {
     Prices *prices = [[Prices alloc] init];
@@ -30,14 +32,20 @@
 
 + (NSURL *)misoURLFromDate:(NSDate *)date
 {
+    NSURL *url = nil;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMdd"];
     NSString *misoString = [NSString stringWithFormat:
                             @"https://www.misoenergy.org/Library/Repository/Market Reports/%@_da_lmp.csv",
                             [formatter stringFromDate:date]];
-    return [NSURL URLWithString:[misoString
+    url = [NSURL URLWithString:[misoString
                                        stringByAddingPercentEscapesUsingEncoding:
                                        NSUTF8StringEncoding]];
+    if (TEST) {
+        NSString *misoFile = [[NSBundle mainBundle] pathForResource:@"miso" ofType:@"csv"];
+        url = [NSURL fileURLWithPath:misoFile];
+    }
+    return url;
 }
 
 + (NSDictionary *)dictionaryFromData:(NSData *)data
