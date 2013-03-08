@@ -55,13 +55,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="2" kind="push" identifier="ShowPrices" id="zjP-wh-TkD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roq-gg-akj">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Show Prices Table">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="96R-vZ-x5h" firstAttribute="centerX" secondItem="uKJ-DW-Mcx" secondAttribute="centerX" type="default" id="1Zb-QH-1mH"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="top" secondItem="96R-vZ-x5h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1u4-8F-0hU"/>
-                            <constraint firstItem="VFI-yh-744" firstAttribute="centerX" secondItem="96R-vZ-x5h" secondAttribute="centerX" type="default" id="A7P-hs-hbZ"/>
+                            <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="VFI-yh-744" secondAttribute="centerX" type="default" id="Awd-0o-9lE"/>
+                            <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="uKJ-DW-Mcx" secondAttribute="centerX" type="default" id="XDg-V3-z92"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" type="default" id="dDY-Pq-soi"/>
+                            <constraint firstItem="96R-vZ-x5h" firstAttribute="top" secondItem="Roq-gg-akj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dTx-Dv-8Au"/>
+                            <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="96R-vZ-x5h" secondAttribute="centerX" type="default" id="gKa-Oh-b0L"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="bottom" secondItem="uKJ-DW-Mcx" secondAttribute="bottom" type="default" id="tva-El-DSP"/>
                             <constraint firstItem="VFI-yh-744" firstAttribute="top" secondItem="uKJ-DW-Mcx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vyR-GY-302"/>
                         </constraints>
@@ -75,6 +87,42 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COd-CM-FtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-362" y="-280"/>
+        </scene>
+        <!--PricesTVC-->
+        <scene sceneID="VDy-Bq-zZv">
+            <objects>
+                <tableViewController id="8fX-67-ch8" customClass="PricesTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dTz-7m-QK3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PricesDetail" textLabel="zZN-fm-ezR" style="IBUITableViewCellStyleDefault" id="27e-T8-yzY">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZN-fm-ezR">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8fX-67-ch8" id="Nh1-Ew-OIK"/>
+                            <outlet property="delegate" destination="8fX-67-ch8" id="wbG-0d-fsF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ubp-us-2WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="-874"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="5">
@@ -158,6 +206,30 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-754" y="-274"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PricesChooserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesChooserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nodeLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pricesDatePicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="PricesTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesTVC.h"/>
+        </class>
+        <class className="PricesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PricesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="offPeakLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="onPeakLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pricesTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="profitLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
