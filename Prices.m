@@ -31,11 +31,11 @@
     return average / 8.0;
 }
 
-#define P1 19.30
-#define P2 22.12
+#define P1 19.91
+#define P2 22.83
 #define Q1 1
 #define Q2 167
-#define NL 332
+#define NL 344
 #define minGen 47
 #define maxGen Q2
 
