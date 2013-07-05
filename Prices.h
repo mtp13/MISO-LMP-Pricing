@@ -10,7 +10,8 @@
 
 @interface Prices : NSObject
 
-@property (nonatomic, strong) NSArray *hourlyPrices; //this was weak and didn't work ????
+@property (nonatomic, strong) NSArray *LMP; //this was weak and didn't work ????
+@property (nonatomic, strong) NSArray *MCC;
 - (double)onPeakAverage;
 - (double)offPeakAverage;
 - (double)profit;

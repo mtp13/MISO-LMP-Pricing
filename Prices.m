@@ -14,7 +14,7 @@
 {
     double average = 0.0;
     for (int i = 6; i <= 21; i++){
-        average += [self.hourlyPrices[i] doubleValue];
+        average += [self.LMP[i] doubleValue];
     }
     return average / 16.0;
 }
@@ -23,10 +23,10 @@
 {
     double average = 0.0;
     for (int i = 0; i <= 5; i++){
-        average += [self.hourlyPrices[i] doubleValue];
+        average += [self.LMP[i] doubleValue];
     }
     for (int i = 22; i <= 23; i++){
-        average += [self.hourlyPrices[i] doubleValue];
+        average += [self.LMP[i] doubleValue];
     }
     return average / 8.0;
 }
@@ -56,7 +56,7 @@
     double averageMaxCost = [self averageCostForDispatchLevel:maxGen];
 
     for (int hour = 0; hour < 24; hour++) {
-        double price = [self.hourlyPrices[hour] doubleValue];
+        double price = [self.LMP[hour] doubleValue];
         if (price < incrementalCost) {
             revenue += minGen * price;
             expense += minGen * averageMinCost;

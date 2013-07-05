@@ -16,7 +16,8 @@
 {
     Prices *prices = [[Prices alloc] init];
     NSDictionary *dictionary = [self executeMidwestISOFetch:date];
-    prices.hourlyPrices = [dictionary objectForKey:node];
+    prices.LMP = [dictionary objectForKey:[node stringByAppendingString:@"_LMP"]];
+    prices.MCC = [dictionary objectForKey:[node stringByAppendingString:@"_MCC"]];
     return prices;
 }
 

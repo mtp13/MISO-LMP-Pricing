@@ -46,10 +46,11 @@
 - (NSString *)pricesAsString:(Prices *)prices
 {
     NSString *displayString = [[NSString alloc] init];
-    double price;
+    double LMP, MCC;
     for (int i = 0; i <24; i++) {
-        price = [prices.hourlyPrices[i] doubleValue];
-        displayString = [displayString stringByAppendingFormat:@"HE %i       %.2f", i + 1, price];
+        LMP = [prices.LMP[i] doubleValue];
+        MCC = [prices.MCC[i] doubleValue];
+        displayString = [displayString stringByAppendingFormat:@"HE %i\t%.2f\t%.2f", i + 1, LMP, MCC];
         if (i != 23) displayString = [displayString stringByAppendingString:@"\n"];
     }
     return displayString;

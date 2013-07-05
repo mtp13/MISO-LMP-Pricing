@@ -37,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.prices.hourlyPrices count];
+    return [self.prices.LMP count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,7 +51,7 @@
 
 - (NSString *)priceForRow:(NSIndexPath *)indexPath
 {
-    double p = [self.prices.hourlyPrices[indexPath.row] doubleValue];
+    double p = [self.prices.LMP[indexPath.row] doubleValue];
     return [NSString stringWithFormat:@"$%.2f", p];
 }
 

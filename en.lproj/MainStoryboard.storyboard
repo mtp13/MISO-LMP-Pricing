@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="v1J-oC-uPB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v1J-oC-uPB">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Prices Chooser View Controller - Choose Date-->
@@ -15,7 +14,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JYF-Zd-a4t">
-                                <rect key="frame" x="0.0" y="254" width="480" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="384041080.32103199">
                                     <!--2013-03-03 22:04:40 +0000-->
                                 </date>
@@ -41,13 +39,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                                 </timeZone>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EEI_Interface_LMP" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yh-744">
-                                <rect key="frame" x="90" y="20" width="140" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EEI" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yh-744">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="yf4-U0-G9l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96R-vZ-x5h">
-                                <rect key="frame" x="103" y="109" width="114" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Show Prices">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +60,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roq-gg-akj">
-                                <rect key="frame" x="82" y="58" width="156" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Show Prices Table">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,17 +75,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="96R-vZ-x5h" firstAttribute="centerX" secondItem="uKJ-DW-Mcx" secondAttribute="centerX" type="default" id="977-WT-1DC"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="top" secondItem="VFI-yh-744" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Aau-hI-bb6"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="VFI-yh-744" secondAttribute="centerX" type="default" id="Awd-0o-9lE"/>
-                            <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="uKJ-DW-Mcx" secondAttribute="centerX" type="default" id="XDg-V3-z92"/>
-                            <constraint firstItem="96R-vZ-x5h" firstAttribute="top" secondItem="Roq-gg-akj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aA8-bK-2SZ"/>
+                            <constraint firstItem="96R-vZ-x5h" firstAttribute="top" secondItem="Roq-gg-akj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BIJ-s1-cGj"/>
+                            <constraint firstItem="Roq-gg-akj" firstAttribute="top" secondItem="uKJ-DW-Mcx" secondAttribute="top" constant="58" id="MLa-T8-vWe"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="leading" secondItem="uKJ-DW-Mcx" secondAttribute="leading" type="default" id="dDY-Pq-soi"/>
                             <constraint firstItem="Roq-gg-akj" firstAttribute="centerX" secondItem="96R-vZ-x5h" secondAttribute="centerX" type="default" id="gKa-Oh-b0L"/>
                             <constraint firstItem="JYF-Zd-a4t" firstAttribute="bottom" secondItem="uKJ-DW-Mcx" secondAttribute="bottom" type="default" id="tva-El-DSP"/>
                             <constraint firstItem="VFI-yh-744" firstAttribute="top" secondItem="uKJ-DW-Mcx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vyR-GY-302"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Choose Date" id="v9G-XR-ZWT"/>
                     <connections>
                         <outlet property="nodeLabel" destination="VFI-yh-744" id="SSe-cN-IbR"/>
@@ -115,13 +113,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fG-LH-JnP">
-                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBe-XR-X6d">
-                                            <rect key="frame" x="266" y="11" width="44" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,7 +132,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="8fX-67-ch8" id="wbG-0d-fsF"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="6WU-3v-JXK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubp-us-2WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,7 +147,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="On Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePL-8d-xCr">
-                                <rect key="frame" x="20" y="20" width="280" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="r9j-ad-fdh"/>
                                 </constraints>
@@ -161,7 +155,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Off Peak = $00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYT-GW-08Z">
-                                <rect key="frame" x="20" y="52" width="280" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="kN2-zJ-vE1"/>
                                 </constraints>
@@ -170,13 +163,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Profit = $0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xah-Qe-QqN">
-                                <rect key="frame" x="20" y="84" width="280" height="27"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Prices" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kuq-4s-F2y">
-                                <rect key="frame" x="20" y="119" width="280" height="277"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="Prices" translatesAutoresizingMaskIntoConstraints="NO" id="kuq-4s-F2y">
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -198,7 +189,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstAttribute="trailing" secondItem="ePL-8d-xCr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rNQ-vQ-ZZN"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="bsk-Se-B7k"/>
                     <connections>
                         <outlet property="offPeakLabel" destination="kYT-GW-08Z" id="6zJ-qY-7g4"/>
@@ -215,7 +205,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="GMa-Wb-LaS">
             <objects>
                 <navigationController id="v1J-oC-uPB" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GXA-2w-kWG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

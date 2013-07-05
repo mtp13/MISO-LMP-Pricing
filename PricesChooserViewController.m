@@ -11,7 +11,7 @@
 #import "PricesViewController.h"
 #import "PricesTVC.h"
 
-#define NODE_TEXT @"EEI_LMP"
+#define NODE_TEXT @"EEI"
 
 @interface PricesChooserViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nodeLabel;
