@@ -49,7 +49,7 @@
     double price;
     for (int i = 0; i <24; i++) {
         price = [prices.hourlyPrices[i] doubleValue];
-        displayString = [displayString stringByAppendingFormat:@"HE %i       %.2f", i, price];
+        displayString = [displayString stringByAppendingFormat:@"HE %i       %.2f", i + 1, price];
         if (i != 23) displayString = [displayString stringByAppendingString:@"\n"];
     }
     return displayString;
